@@ -1,0 +1,12 @@
+<mat-spinner *ngIf="!user"></mat-spinner>
+
+<mat-card *ngIf="user" class="user-info-container mat-elevation-z8">
+  <div class="avatar-container">
+    <mat-spinner *ngIf="!avatarLoaded"></mat-spinner>
+    <img class="user-avatar" alt="avatar" [src]="user.avatar" (load)="onAvatarLoaded()">
+  </div>
+  <div class="info-container">
+    <div class="user-name">{{user.first_name + ' ' + user.last_name}}</div>
+    <a [href]="'mailto:'+user.email" class="user-email">{{user.email}}</a>
+  </div>
+</mat-card>
